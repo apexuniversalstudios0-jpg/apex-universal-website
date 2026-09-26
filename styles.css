@@ -329,6 +329,15 @@ body {
     line-height: 1.7;
 }
 
+/* LIGHT BACKGROUND SECTION TITLES */
+.divisions .section-title,
+.development .section-title,
+.status-section .section-title,
+.apex-approach .section-title,
+.building-apex .section-title {
+    color: #000000;
+}
+
 /* ===========================
    ABOUT SECTION
    =========================== */
