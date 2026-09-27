@@ -84,10 +84,35 @@ if ('IntersectionObserver' in window) {
     });
 }
 
-// ===== PARALLAX EFFECT =====
-// Parallax effect for hero image and sections
+// ===== LIQUID SCROLL BEHAVIOR =====
+// Cards compress/expand based on scroll velocity - liquid behavior
+let lastScrollTop = 0;
+let scrollVelocity = 0;
+let scrollDirection = 0;
+
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
+    scrollVelocity = Math.abs(scrolled - lastScrollTop);
+    scrollDirection = scrolled > lastScrollTop ? 1 : -1;
+    lastScrollTop = scrolled;
+    
+    // Apply liquid effect to all cards
+    const cards = document.querySelectorAll('.about-card, .division-card-scroll, .dev-card, .status-card, .principle-card');
+    cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const cardCenterY = rect.top + rect.height / 2;
+        const screenCenter = window.innerHeight / 2;
+        const distanceFromCenter = Math.abs(cardCenterY - screenCenter);
+        
+        // Calculate compression based on scroll velocity and distance from center
+        const compressionFactor = Math.max(0, 1 - scrollVelocity / 50);
+        const scaleFactor = 0.95 + (compressionFactor * 0.05);
+        const yCompress = scrollVelocity * 0.02 * scrollDirection;
+        
+        // Apply dynamic liquid transform
+        card.style.transform = `scaleY(${scaleFactor}) translateY(${yCompress}px)`;
+        card.style.transition = 'none';
+    });
     
     // Parallax on hero image
     const heroImage = document.querySelector('.hero-image');
@@ -114,13 +139,14 @@ window.addEventListener('scroll', () => {
             title.style.transform = `translateY(${offset * 0.1}px)`;
         });
     });
-});
+}, { passive: true });
 
 // ===== BUTTON HOVER ANIMATIONS =====
 // Add subtle scale effect on button hover
 document.querySelectorAll('.btn').forEach(button => {
     button.addEventListener('mouseenter', function() {
         this.style.transform = 'scale(1.05)';
+        this.style.transition = 'transform 0.3s ease';
     });
     
     button.addEventListener('mouseleave', function() {
@@ -129,13 +155,15 @@ document.querySelectorAll('.btn').forEach(button => {
 });
 
 // ===== CARD HOVER LIFT EFFECT =====
-// Cards lift up slightly on hover
+// Cards lift up slightly on hover with liquid smoothness
 document.querySelectorAll('.about-card, .division-card-scroll, .dev-card, .status-card, .principle-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px)';
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+        this.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
     });
     
     card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
+        this.style.transform = 'translateY(0) scale(1)';
+        this.style.transition = 'transform 0.4s ease';
     });
 });
