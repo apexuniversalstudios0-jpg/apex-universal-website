@@ -228,18 +228,6 @@ body {
     margin: 0 auto;
 }
 
-.hero-secondary-cta .btn-secondary {
-    background-color: #000000;
-    color: #ffffff;
-    border: 1.5px solid #000000;
-}
-
-.hero-secondary-cta .btn-secondary:hover {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: #000000;
-}
-
 /* ===== BUTTONS ===== */
 .btn {
     padding: 12px 28px;
@@ -275,6 +263,19 @@ body {
 .btn-secondary:hover {
     border-color: var(--accent-color);
     color: var(--accent-color);
+}
+
+/* HERO SECONDARY CTA BUTTON OVERRIDE */
+.hero-secondary-cta .btn-secondary {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 1.5px solid #000000 !important;
+}
+
+.hero-secondary-cta .btn-secondary:hover {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    color: #000000 !important;
 }
 
 .btn-narrow {
