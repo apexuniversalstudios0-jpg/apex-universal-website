@@ -61,20 +61,81 @@ document.addEventListener('visibilitychange', () => {
     }
 });
 
-// Intersection Observer for scroll animations (optional)
+// ===== SMOOTH SCROLL ANIMATIONS =====
+// Fade-in and slide-up animation for sections
 if ('IntersectionObserver' in window) {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.1
-    });
+    }, observerOptions);
 
-    // Observe all sections
-    document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
+    // Observe all sections and cards
+    document.querySelectorAll('section, .about-card, .division-card-scroll, .dev-card, .status-card, .principle-card').forEach(element => {
+        observer.observe(element);
     });
 }
+
+// ===== PARALLAX EFFECT =====
+// Parallax effect for hero image and sections
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    
+    // Parallax on hero image
+    const heroImage = document.querySelector('.hero-image');
+    if (heroImage) {
+        heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+    
+    // Parallax on navbar
+    const navbar = document.querySelector('.navbar');
+    if (navbar && scrolled > 0) {
+        navbar.style.boxShadow = `0 2px 20px rgba(0, 0, 0, ${Math.min(scrolled / 500, 0.3)})`;
+    } else if (navbar) {
+        navbar.style.boxShadow = 'none';
+    }
+    
+    // Subtle parallax on section titles
+    const sections = document.querySelectorAll('section');
+    sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        const offset = rect.top - window.innerHeight / 2;
+        
+        const titles = section.querySelectorAll('.section-title');
+        titles.forEach(title => {
+            title.style.transform = `translateY(${offset * 0.1}px)`;
+        });
+    });
+});
+
+// ===== BUTTON HOVER ANIMATIONS =====
+// Add subtle scale effect on button hover
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+    });
+    
+    button.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
+});
+
+// ===== CARD HOVER LIFT EFFECT =====
+// Cards lift up slightly on hover
+document.querySelectorAll('.about-card, .division-card-scroll, .dev-card, .status-card, .principle-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+    });
+});
