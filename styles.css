@@ -865,3 +865,32 @@ body {
 .mb-40 {
     margin-bottom: 40px;
 }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section, .about-card, .division-card-scroll, .dev-card, .status-card, .principle-card {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+section.fade-in, .about-card.fade-in, .division-card-scroll.fade-in, .dev-card.fade-in, .status-card.fade-in, .principle-card.fade-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card, .division-card-scroll, .dev-card, .status-card, .principle-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
