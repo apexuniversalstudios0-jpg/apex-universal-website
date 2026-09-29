@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Universal Studios™ — Entertainment, Technology, and Creative Excellence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #fff;
+            background: #0a0a0a;
+            line-height: 1.6;
+        }
+
+        /* TYPOGRAPHY */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+            opacity: 0.95;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.9rem 2rem;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            height: 70px;
+        }
+
+        /* LOGO CIRCLE */
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo-circle img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* HAMBURGER MENU */
+        .hamburger {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .hamburger span {
+            width: 20px;
+            height: 2px;
+            background: #fff;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding-top: 8rem;
+            padding-bottom: 3rem;
+            background: #fff;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            color: #1a1a1a;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 1.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #2a2a2a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #1a1a1a;
+            border: 2px solid #1a1a1a;
+        }
+
+        .btn-secondary:hover {
+            background: #1a1a1a;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        section:nth-child(6) .btn-primary {
+            background: rgba(255, 255, 255, 0.15);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        section:nth-child(6) .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        section:nth-child(6) .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        section:nth-child(6) .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* CAROUSEL / SLIDER */
+        .carousel-section {
+            padding: 3rem 0;
+            background: #0a0a0a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .carousel-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 1.5rem;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 1rem;
+            scroll-padding-left: 2rem;
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .carousel-track::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 3px;
+        }
+
+        .carousel-track::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+
+        .carousel-track::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-item {
+            flex: 0 0 calc((100vw - 4rem) / 3);
+            height: 280px;
+            background: rgba(255, 255, 255, 0.08);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .carousel-item:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* CAROUSEL NAVIGATION */
+        .carousel-nav {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+        .carousel-nav button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-nav button:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        section:nth-child(3) {
+            background: #fff;
+            color: #1a1a1a;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        section:nth-child(4) {
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        section:nth-child(5) {
+            background: #fff;
+            color: #1a1a1a;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        section:nth-child(6) {
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        section:nth-child(7) {
+            background: #fff;
+            color: #1a1a1a;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .section-dark {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .section-dark h2 {
+            color: #fff;
+        }
+
+        .section-dark p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* FRAMEWORK SECTION */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .framework-card {
+            background: rgba(255, 255, 255, 0.08);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            color: #fff;
+        }
+
+        section:nth-child(3) .framework-card {
+            background: #f5f5f5;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #1a1a1a;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .framework-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .framework-card p {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+
+        /* DIVISIONS CAROUSEL */
+        .divisions-carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 2rem 0 1rem 0;
+            scroll-padding-left: 2rem;
+        }
+
+        .divisions-carousel::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .divisions-carousel::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 3px;
+        }
+
+        .divisions-carousel::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+
+        .divisions-carousel::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .division-card {
+            flex: 0 0 calc(50% - 1rem);
+            background: rgba(255, 255, 255, 0.08);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        section:nth-child(4) .division-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+
+        @media (max-width: 1024px) {
+            .division-card {
+                flex: 0 0 calc(70% - 1rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .division-card {
+                flex: 0 0 calc(90% - 1rem);
+            }
+        }
+
+        .division-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1a1a1a, #4a4a4a);
+        }
+
+        .division-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+        }
+
+        .division-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .division-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .division-tagline {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-style: italic;
+            margin-bottom: 1.25rem;
+        }
+
+        .division-description {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .division-areas {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .division-areas h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .area-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .area-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* PHILOSOPHY GRID */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .philosophy-card {
+            padding: 2rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            color: #fff;
+        }
+
+        section:nth-child(5) .philosophy-card {
+            background: #f5f5f5;
+            border-left-color: #1a1a1a;
+            color: #1a1a1a;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+
+        .philosophy-card:hover {
+            transform: translateX(8px);
+        }
+
+        .philosophy-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .philosophy-card p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* VALUES SECTION */
+        .values-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            color: #fff;
+        }
+
+        section:nth-child(5) .value-item {
+            background: #f5f5f5;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #1a1a1a;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+
+        .value-item:hover {
+            transform: scale(1.05);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .value-item p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            opacity: 0.8;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0d0d0d;
+            color: #fff;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 0;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-socials a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .footer-socials a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+        }
+
+        /* ACCENT */
+        .accent-line {
+            width: 60px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.3);
+            margin-bottom: 1.5rem;
+        }
+
+        section:nth-child(3) .accent-line,
+        section:nth-child(5) .accent-line,
+        section:nth-child(7) .accent-line {
+            background: #1a1a1a;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            margin: 3rem 0;
+        }
+
+        section:nth-child(4) .section-divider {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .logo-circle {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+
+            .hamburger {
+                width: 42px;
+                height: 42px;
+            }
+
+            .hero {
+                padding-top: 6rem;
+                padding-bottom: 2rem;
+            }
+
+            .carousel-item {
+                flex: 0 0 calc(100vw - 4rem);
+                height: 220px;
+            }
+
+            .divisions-carousel {
+                gap: 1.5rem;
+            }
+
+            .framework-grid,
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ANIMATION */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .framework-card,
+        .division-card,
+        .philosophy-card {
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .framework-card:nth-child(1) { animation-delay: 0.1s; }
+        .framework-card:nth-child(2) { animation-delay: 0.2s; }
+        .framework-card:nth-child(3) { animation-delay: 0.3s; }
+
+        /* SCHEMA.ORG STRUCTURED DATA */
+        script[type="application/ld+json"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo-circle">
+            <!-- Profile image goes here or placeholder -->
+            A
+        </div>
+        <button class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- NETFLIX-STYLE CAROUSEL -->
+    <section class="carousel-section">
+        <div class="container">
+            <p class="carousel-label">Featured Projects</p>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-item">Showcase Image 1</div>
+                    <div class="carousel-item">Showcase Image 2</div>
+                    <div class="carousel-item">Showcase Image 3</div>
+                    <div class="carousel-item">Showcase Image 4</div>
+                    <div class="carousel-item">Showcase Image 5</div>
+                    <div class="carousel-item">Showcase Image 6</div>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button onclick="scrollCarousel(-1)">‹</button>
+                <button onclick="scrollCarousel(1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-eyebrow">ENTERTAINMENT & CREATIVE EXCELLENCE</p>
+                <h1>The Operating Company for the Next Era of Entertainment</h1>
+                <p class="hero-description">
+                    Apex Universal Studios™ is a diversified parent company that creates, owns, develops, and operates a portfolio of entertainment, media, technology, intellectual property, and creative businesses across multiple industries and future mediums.
+                </p>
+                <div class="cta-group">
+                    <button class="btn btn-primary">Explore Our Work</button>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT / FRAMEWORK SECTION -->
+    <section id="about">
+        <div class="container">
+            <div class="accent-line"></div>
+            <h2>What We Build</h2>
+            <p style="max-width: 800px; font-size: 1.15rem;">
+                Apex is defined by the larger system it builds and operates rather than by any single medium, studio, product, or creative discipline. We create, own, develop, operate, and expand a portfolio of businesses built for long-term growth.
+            </p>
+            
+            <div class="framework-grid">
+                <div class="framework-card">
+                    <h3>Entertainment Creation</h3>
+                    <p>We develop entertainment across film, animation, music, games, publishing, interactive experiences, and future forms of entertainment with intentional creative vision.</p>
+                </div>
+                <div class="framework-card">
+                    <h3>Intellectual Property</h3>
+                    <p>We develop original characters, worlds, stories, brands, music, technologies, and experiences with potential for continued use and expansion across mediums.</p>
+                </div>
+                <div class="framework-card">
+                    <h3>Creative Businesses</h3>
+                    <p>We build specialized divisions and businesses capable of turning creative capabilities and intellectual property into sustainable long-term enterprises.</p>
+                </div>
+                <div class="framework-card">
+                    <h3>Talent & Capabilities</h3>
+                    <p>We develop the people, creative disciplines, technical capabilities, production systems, and leadership required to sustain our businesses and expand our potential.</p>
+                </div>
+                <div class="framework-card">
+                    <h3>Technology & Innovation</h3>
+                    <p>We develop and adopt technology where it strengthens creation, production, distribution, interaction, business operations, or future opportunities.</p>
+                </div>
+                <div class="framework-card">
+                    <h3>Continuous Expansion</h3>
+                    <p>We remain capable of entering new industries, mediums, markets, and business categories as opportunities and capabilities develop and mature.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVISIONS CAROUSEL SECTION -->
+    <section id="divisions">
+        <div class="container">
+            <div class="accent-line"></div>
+            <h2>Our Divisions</h2>
+            <p style="max-width: 800px; font-size: 1.15rem; margin-bottom: 2rem;">
+                Each Apex division operates as a specialized business within our larger ecosystem, developing deep expertise within its own discipline while remaining aligned with the parent company's direction.
+            </p>
+            
+            <div class="divisions-carousel">
+                <!-- ANIMATION -->
+                <div class="division-card">
+                    <span class="division-badge">Animation & Film</span>
+                    <h3>Apex Animation Studio™</h3>
+                    <p class="division-tagline">"Bringing worlds to life through motion"</p>
+                    <p class="division-description">
+                        Our animation division creates animated films, series, and shorts with distinctive visual identities and compelling storytelling. We develop original animation-specific intellectual property and visual language systems.
+                    </p>
+                    <div class="division-areas">
+                        <h4>Core Areas</h4>
+                        <div class="area-list">
+                            <span class="area-tag">Animated Films</span>
+                            <span class="area-tag">Series</span>
+                            <span class="area-tag">Shorts</span>
+                            <span class="area-tag">Character Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PICTURES -->
+                <div class="division-card">
+                    <span class="division-badge">Publishing & Visual</span>
+                    <h3>Apex Pictures™</h3>
+                    <p class="division-tagline">"Visual storytelling at its finest"</p>
+                    <p class="division-description">
+                        Our publishing division develops comics, graphic novels, and illustrated storytelling across multiple visual styles. We create original visual intellectual property systems with distinctive design language.
+                    </p>
+                    <div class="division-areas">
+                        <h4>Core Areas</h4>
+                        <div class="area-list">
+                            <span class="area-tag">Comics</span>
+                            <span class="area-tag">Graphic Novels</span>
+                            <span class="area-tag">Publishing</span>
+                            <span class="area-tag">Visual IP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MUSIC -->
+                <div class="division-card">
+                    <span class="division-badge">Music & Audio</span>
+                    <h3>Apex Music™</h3>
+                    <p class="division-tagline">"Original sound, distinctive voice"</p>
+                    <p class="division-description">
+                        Our music division creates original music, albums, soundtracks, and music-driven projects. We develop artists and music-based intellectual property while maintaining creative control.
+                    </p>
+                    <div class="division-areas">
+                        <h4>Core Areas</h4>
+                        <div class="area-list">
+                            <span class="area-tag">Music Creation</span>
+                            <span class="area-tag">Albums & Releases</span>
+                            <span class="area-tag">Soundtracks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LABELS -->
+                <div class="division-card">
+                    <span class="division-badge">Artist Development</span>
+                    <h3>Apex Labels™</h3>
+                    <p class="division-tagline">"Building careers, building catalogs"</p>
+                    <p class="division-description">
+                        Our label division focuses on artist development, label operations, catalog management, and music business infrastructure. We build long-term relationships with artists.
+                    </p>
+                    <div class="division-areas">
+                        <h4>Core Areas</h4>
+                        <div class="area-list">
+                            <span class="area-tag">Artist Development</span>
+                            <span class="area-tag">Label Operations</span>
+                            <span class="area-tag">Catalog Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GAMES -->
+                <div class="division-card">
+                    <span class="division-badge">Interactive Media</span>
+                    <h3>Apex Games™</h3>
+                    <p class="division-tagline">"Interactive worlds, player experiences"</p>
+                    <p class="division-description">
+                        Our games division develops video games, interactive entertainment, and related experiences. We create original gameplay systems, interactive worlds, and technology platforms.
+                    </p>
+                    <div class="division-areas">
+                        <h4>Core Areas</h4>
+                        <div class="area-list">
+                            <span class="area-tag">Video Games</span>
+                            <span class="area-tag">Interactive Design</span>
+                            <span class="area-tag">Game Technology</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SOFTWARE -->
+                <div class="division-card">
+                    <span class="division-badge">Technology & Tools</span>
+                    <h3>Apex Software™</h3>
+                    <p class="division-tagline">"Technology that serves creation"</p>
+                    <p class="division-description">
+                        Our software division develops software, digital products, creative technology, and future technology-based businesses. We build tools and platforms that strengthen creative work.
+                    </p>
+                    <div class="division-areas">
+                        <h4>Core Areas</h4>
+                        <div class="area-list">
+                            <span class="area-tag">Software Development</span>
+                            <span class="area-tag">Digital Products</span>
+                            <span class="area-tag">Creative Technology</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+            <p style="text-align: center; color: #666; margin-top: 2rem;">
+                <em>Scroll to see all divisions. Each retains autonomy to build its own systems while remaining aligned with the larger Apex framework.</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY SECTION (DARK) -->
+    <section class="section-dark" id="philosophy">
+        <div class="container">
+            <div class="accent-line"></div>
+            <h2>How We Operate</h2>
+            <p style="max-width: 800px; font-size: 1.15rem;">
+                Apex's approach is built on the belief that exceptional creative work and enduring businesses are created through intentional vision, strong ownership, disciplined execution, continuous development, and long-term thinking.
+            </p>
+            
+            <div class="philosophy-grid" style="margin-top: 3rem;">
+                <div class="philosophy-card">
+                    <h4>Create With Purpose</h4>
+                    <p>We create because an idea, story, product, or opportunity is worth developing. Projects should have a clear reason to exist rather than filling schedules or following trends.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>Build, Don't Just Produce</h4>
+                    <p>We distinguish between completing individual projects and building lasting capabilities, assets, businesses, and intellectual property. Building is our larger objective.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>Creativity & Business Together</h4>
+                    <p>Creative quality and business sustainability are not opposing objectives. We seek structures that allow strong creative work to become sustainable without reducing every decision to short-term logic.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>Think Long Term</h4>
+                    <p>We consider how decisions affect the company beyond immediate projects or business cycles. Long-term thinking applies to IP, talent, technology, relationships, and organizational structure.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>Own What We Build</h4>
+                    <p>We value clear ownership, stewardship, protection, and responsible development of the assets we create. Ownership provides the foundation for continued development and future opportunities.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>Develop Continuously</h4>
+                    <p>We don't treat ideas, capabilities, or businesses as permanently finished. Strong work can be refined. Businesses can mature. Capabilities can expand. Systems can evolve.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>Specialization Strengthens</h4>
+                    <p>Each division develops deep expertise within its discipline. Stronger ecosystems emerge when specialized businesses develop their own strengths while remaining aligned with the parent company.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>Technology Serves Creation</h4>
+                    <p>We treat technology as a capability rather than an end in itself. We use technology when it improves creative possibilities, production, distribution, interaction, or future opportunities.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>Quality Requires Discipline</h4>
+                    <p>High-quality work requires development, iteration, standards, resources, technical competence, leadership, feedback, and disciplined execution across every stage of creation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUES SECTION -->
+    <section id="values">
+        <div class="container">
+            <div class="accent-line"></div>
+            <h2>What We Stand For</h2>
+            <p style="max-width: 800px; font-size: 1.15rem; margin-bottom: 2rem;">
+                Apex Universal Studios™ stands for originality, creative excellence, ambitious thinking, meaningful entertainment, long-term ownership, responsible innovation, and the continuous pursuit of what is possible.
+            </p>
+            
+            <div class="values-list">
+                <div class="value-item">
+                    <div class="value-icon">✦</div>
+                    <h4>Originality</h4>
+                    <p>Original ideas with distinctive point of view and intentional creative identity.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">◆</div>
+                    <h4>Excellence</h4>
+                    <p>High standards of creative quality in story, design, music, and execution.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">▲</div>
+                    <h4>Ambition</h4>
+                    <p>Pursuing ideas requiring significant creative, technical, and organizational effort.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">●</div>
+                    <h4>Meaning</h4>
+                    <p>Entertainment intended to engage, inspire, and connect with audiences.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">■</div>
+                    <h4>Ownership</h4>
+                    <p>Building and protecting what we create, from IP to businesses to capabilities.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">◈</div>
+                    <h4>Innovation</h4>
+                    <p>Purposeful innovation when it meaningfully improves creation or operations.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">❖</div>
+                    <h4>Adaptability</h4>
+                    <p>Evolving as industries change without abandoning our foundational principles.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">◉</div>
+                    <h4>Collaboration</h4>
+                    <p>Built from multiple disciplines working together to create something greater.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">▸</div>
+                    <h4>Respect</h4>
+                    <p>Treating creative work as something worth developing properly with appropriate resources.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION (DARK) -->
+    <section class="section-dark" id="contact">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2>Work With Apex</h2>
+                <p style="font-size: 1.15rem; margin-bottom: 2.5rem;">
+                    We're always looking for talented creators, innovative technologists, and strategic partners who share our vision for creating meaningful entertainment and enduring businesses.
+                </p>
+                <div class="cta-group" style="justify-content: center;">
+                    <button class="btn btn-primary">Explore Opportunities</button>
+                    <button class="btn btn-secondary">Get in Touch</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <a href="#">About Apex</a>
+                    <a href="#">Company Blog</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Press Kit</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Divisions</h3>
+                    <a href="#">Apex Animation Studio™</a>
+                    <a href="#">Apex Pictures™</a>
+                    <a href="#">Apex Music™</a>
+                    <a href="#">Apex Games™</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Terms & Privacy</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow</h3>
+                    <p>Stay updated with latest news from Apex Universal Studios™</p>
+                    <a href="#">Newsletter</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Apex Universal Studios™. All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="#" title="Twitter">X</a>
+                    <a href="#" title="Instagram">IG</a>
+                    <a href="#" title="LinkedIn">LI</a>
+                    <a href="#" title="YouTube">YT</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CAROUSEL SCROLL FUNCTION -->
+    <script>
+        function scrollCarousel(direction) {
+            const carousel = document.querySelector('.carousel-track');
+            const scrollAmount = carousel.offsetWidth * 0.5;
+            carousel.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Hamburger menu interaction (placeholder)
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            alert('Menu will be implemented here');
+        });
+    </script>
+
+    <!-- STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Apex Universal Studios™",
+        "url": "https://apexuniversalstudios.com/",
+        "description": "Apex Universal Studios™ is the parent company that creates, owns, develops, and operates a portfolio of entertainment, media, technology, intellectual property, and creative businesses across multiple industries and future mediums."
+    }
+    </script>
+</body>
+</html>
